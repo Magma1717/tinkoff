@@ -90,7 +90,7 @@ public class LinksController implements Links {
         if (accept != null && accept.contains("application/json")) {
             LinkResponse build = LinkResponse.builder()
                     .id(1L)
-                    .url(body.getLink())
+                    .url(URI.create(body.getLink()))
                     .build();
             return new ResponseEntity<>(build, HttpStatus.OK);
         }
