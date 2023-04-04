@@ -11,4 +11,4 @@ public class LinkUpdaterScheduler {
     @Scheduled(fixedDelayString = "#{@schedulingIntervalMillis}")
     public void update() {
         log.info("Update something");
-    }
+    }}

@@ -20,4 +20,4 @@ public class SwaggerConfig {
                         .contact(new Contact()
                                 .name("Anna Markovnikova")
                                 .email("annamarkovnikova1717@gmail.ru")));
-    }
+    }}
