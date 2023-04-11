@@ -53,9 +53,11 @@
     </dependencyManagement>
     <dependencies>
         <dependency>
-            <groupId>io.swagger.parser.v3</groupId>
-            <artifactId>swagger-parser-v3</artifactId>
-            <version>2.1.12</version>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>testcontainers-bom</artifactId>
+            <version>${testcontainers.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
         </dependency>
         <dependency>
             <groupId>io.swagger.parser.v3</groupId>
