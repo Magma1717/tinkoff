@@ -1,5 +1,4 @@
 package ru.tinkoff.edu.java.scrapper.container;
-package ru.tinkoff.edu.java.scrapper.container;
 
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
