@@ -10,7 +10,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import ru.tinkoff.edu.java.bot.service.bot.LinkService;
-import ru.tinkoff.edu.java.bot.service.bot.commands.impl.ListCommand;
+import ru.tinkoff.edu.java.bot.service.commands.impl.ListCommand;
 
 import java.util.List;
 

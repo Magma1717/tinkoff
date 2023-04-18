@@ -9,9 +9,9 @@ import com.pengrad.telegrambot.request.SendMessage;
 import com.pengrad.telegrambot.request.SetMyCommands;
 import org.springframework.stereotype.Service;
 import ru.tinkoff.edu.java.bot.configuration.TelegramConfig;
-import ru.tinkoff.edu.java.bot.service.bot.commands.CommandList;
-import ru.tinkoff.edu.java.bot.service.bot.commands.Command;
-import ru.tinkoff.edu.java.bot.service.bot.commands.impl.UnknownCommand;
+import ru.tinkoff.edu.java.bot.service.commands.CommandList;
+import ru.tinkoff.edu.java.bot.service.commands.Command;
+import ru.tinkoff.edu.java.bot.service.commands.impl.UnknownCommand;
 
 import java.util.List;
 

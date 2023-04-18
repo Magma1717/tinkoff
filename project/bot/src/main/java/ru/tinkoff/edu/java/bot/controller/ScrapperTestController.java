@@ -7,7 +7,7 @@ import ru.tinkoff.edu.java.bot.model.request.AddLinkRequest;
 import ru.tinkoff.edu.java.bot.model.request.RemoveLinkRequest;
 import ru.tinkoff.edu.java.bot.model.response.LinkResponse;
 import ru.tinkoff.edu.java.bot.model.response.ListLinksResponse;
-import ru.tinkoff.edu.java.bot.service.bot.client.ScrapperClient;
+import ru.tinkoff.edu.java.bot.service.client.ScrapperClient;
 
 @RestController
 @RequestMapping("/scrapper")

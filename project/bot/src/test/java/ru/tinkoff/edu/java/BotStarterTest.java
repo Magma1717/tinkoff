@@ -1,7 +1,5 @@
 package ru.tinkoff.edu.java;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import com.pengrad.telegrambot.model.Chat;
 import com.pengrad.telegrambot.model.Message;
 import com.pengrad.telegrambot.model.Update;
@@ -15,8 +13,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import ru.tinkoff.edu.java.bot.configuration.TelegramConfig;
 import ru.tinkoff.edu.java.bot.service.bot.LinkService;
 import ru.tinkoff.edu.java.bot.service.bot.BotStarter;
-import ru.tinkoff.edu.java.bot.service.bot.commands.CommandList;
-import ru.tinkoff.edu.java.bot.service.bot.commands.impl.*;
+import ru.tinkoff.edu.java.bot.service.commands.CommandList;
+import ru.tinkoff.edu.java.bot.service.commands.impl.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
