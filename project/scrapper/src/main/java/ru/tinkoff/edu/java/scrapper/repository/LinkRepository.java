@@ -1,6 +1,6 @@
-package ru.tinkoff.edu.java.scrapper.repository;
+package src.main.java.ru.tinkoff.edu.java.scrapper.repository;
 
-import ru.tinkoff.edu.java.scrapper.dto.LinkResponseDto;
+import src.main.java.ru.tinkoff.edu.java.scrapper.model.dto.LinkResponseDto;
 import ru.tinkoff.edu.java.scrapper.model.request.AddLinkRequest;
 import ru.tinkoff.edu.java.scrapper.model.request.RemoveLinkRequest;
 import ru.tinkoff.edu.java.scrapper.model.response.LinkResponse;
@@ -9,18 +9,18 @@ import ru.tinkoff.edu.java.scrapper.model.response.ListLinksResponse;
 import java.time.OffsetDateTime;
 import java.util.List;
 
-public interface LinksRepository {
+public interface LinkRepository {
     LinkResponse add(Long tgChatId, AddLinkRequest request);
 
     LinkResponse remove(Long tgChatId, RemoveLinkRequest request);
 
     ListLinksResponse findAll(Long tgChatId);
 
-    List<LinkResponseDto> findOneOldestLinksByLastCheckForEachUser();
+    List<LinkResponseDto> findOneOldestLinkByLastCheckForEachUser();
 
     void setLastCheck(Long id);
 
-    void setLastUpdate(Long id, OffsetDateTime update);
+    void setLastUpdateDate(Long id, OffsetDateTime update);
 
     Boolean chatIsExists(Long tgChatId);
 }

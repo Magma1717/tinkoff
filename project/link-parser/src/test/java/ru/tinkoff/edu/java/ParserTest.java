@@ -40,7 +40,16 @@ class ParserTest {
         assertNull(parser.checkLink(input));
     }
 
-     @Test
+    @Test
+    void checkLink_shouldReturnGitHubResultRecord() {
+        String input = "https://github.com/Vitalik1995Rikov/testStWars";
+        String expected = new GitHubResultRecord("Vitalik1995Rikov", "testStWars").getResult();
+
+        assertEquals(expected, parser.checkLink(input)
+                .getResult());
+    }
+
+    @Test
     void checkLink_shouldReturnGStackOverflowResultRecord() {
         String input = "https://stackoverflow.com/questions/75886281/how-can-i-instantiate-in-a-grid-a-list-of-prefabs";
         String expected = new StackOverflowResultRecord("75886281").getResult();

@@ -1,4 +1,4 @@
-package ru.tinkoff.edu.java.scrapper.service.client;
+package src.main.java.ru.tinkoff.edu.java.scrapper.service.client;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -7,7 +7,6 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 import ru.tinkoff.edu.java.linkParser.parser.result.StackOverflowResultRecord;
 import ru.tinkoff.edu.java.scrapper.model.response.StackOverflowQuestionInfoResponse;
-
 @Service
 @RequiredArgsConstructor
 public class StackOverflowClient {

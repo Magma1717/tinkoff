@@ -1,4 +1,4 @@
-package ru.tinkoff.edu.java.scrapper.controller;
+package src.main.java.ru.tinkoff.edu.java.scrapper.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

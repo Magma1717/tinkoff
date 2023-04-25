@@ -1,4 +1,4 @@
-package ru.tinkoff.edu.java.scrapper.dto;
+package src.main.java.ru.tinkoff.edu.java.scrapper.model.dto;
 
 import lombok.*;
 

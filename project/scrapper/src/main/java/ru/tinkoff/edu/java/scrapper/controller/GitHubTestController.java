@@ -1,4 +1,4 @@
-package ru.tinkoff.edu.java.scrapper.controller;
+package src.main.java.ru.tinkoff.edu.java.scrapper.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

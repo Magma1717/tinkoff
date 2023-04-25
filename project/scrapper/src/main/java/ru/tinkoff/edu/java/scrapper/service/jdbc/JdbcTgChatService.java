@@ -1,4 +1,4 @@
-package ru.tinkoff.edu.java.scrapper.service.jdbc;
+package src.main.java.ru.tinkoff.edu.java.scrapper.service.jdbc;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -6,7 +6,7 @@ import ru.tinkoff.edu.java.scrapper.exception.DataAlreadyExistException;
 import ru.tinkoff.edu.java.scrapper.exception.DataNotFoundException;
 import ru.tinkoff.edu.java.scrapper.model.response.ListTgChatResponse;
 import ru.tinkoff.edu.java.scrapper.model.response.TgChatResponse;
-import ru.tinkoff.edu.java.scrapper.repository.TgChatRepository;
+import src.main.java.ru.tinkoff.edu.java.scrapper.repository.TgChatRepository;
 import ru.tinkoff.edu.java.scrapper.service.TgChatService;
 
 @Service
