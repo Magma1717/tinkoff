@@ -15,15 +15,14 @@ public class StackOverflowClient {
 
     public Mono<StackOverflowQuestionInfoResponse> getStackOverflowQuestionInfo(StackOverflowResultRecord questionId) {
         return webClient.get()
-                .uri(uriBuilder -> {
-                    return uriBuilder
-                            .path("/2.3/questions/{id}")
-                            .queryParam("order", "desc")
-                            .queryParam("sort", "activity")
-                            .queryParam("site", "stackoverflow")
-                            .build(questionId.getResult());
-                })
+                .uri(uriBuilder -> uriBuilder
+                        .path("/2.3/questions/{id}")
+                        .queryParam("order", "desc")
+                        .queryParam("sort", "activity")
+                        .queryParam("site", "stackoverflow")
+                        .build(questionId.getResult()))
                 .retrieve()
-                .bodyToMono(StackOverflowQuestionInfoResponse.class);
+                .bodyToMono(StackOverflowQuestionInfoResponse.class)
+                .retryWhen(Retry.fixedDelay(3, Duration.ofMillis(100)));
     }
 }

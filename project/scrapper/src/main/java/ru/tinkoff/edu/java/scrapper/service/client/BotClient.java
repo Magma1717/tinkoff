@@ -11,17 +11,18 @@ import ru.tinkoff.edu.java.scrapper.model.request.LinkUpdateRequest;
 
 @Service
 @RequiredArgsConstructor
-public class BotClient {
+public class BotClient implements SendMessageService{
     @Qualifier("botClientWithTimeout")
     private final WebClient webClient;
 
-    public Mono<ResponseEntity<Void>> postLinks(LinkUpdateRequest requestBody) {
-        return webClient.post()
+    public void sendMessage(LinkUpdateRequest requestBody) {
+        webClient.post()
                 .uri(uriBuilder -> uriBuilder.path("/updates")
                         .build())
                 .body(Mono.just(requestBody), LinkUpdateRequest.class)
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
-                .toEntity(Void.class);
+                .toEntity(Void.class)
+                .subscribe();
     }
 }

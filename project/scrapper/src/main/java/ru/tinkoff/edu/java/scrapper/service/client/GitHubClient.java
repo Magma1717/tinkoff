@@ -20,6 +20,7 @@ public class GitHubClient {
                 .uri(uriBuilder -> uriBuilder.path("/repos/{user}/{repo}")
                         .build(repository.userName(), repository.repository()))
                 .retrieve()
-                .bodyToMono(GitHubRepositoryInfoResponse.class);
+                .bodyToMono(GitHubRepositoryInfoResponse.class)
+                .retryWhen(Retry.fixedDelay(3, Duration.ofMillis(100)));
     }
 }
