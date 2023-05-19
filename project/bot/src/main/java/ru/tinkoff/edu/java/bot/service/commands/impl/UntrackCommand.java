@@ -19,12 +19,12 @@ public class UntrackCommand implements Command {
 
     @Override
     public String description() {
-        return "прекратить отслеживаоние ссылки";
+        return "Прекратить отслеживаоние ссылки";
     }
 
     @Override
     public SendMessage handle(Update update) {
-        return new SendMessage(update.message().chat().id(), "отслеживание ссылки прекращено");
+        return new SendMessage(update.message().chat().id(), "Отслеживание ссылки прекращено\uD83E\uDD21");
     }
 }
 

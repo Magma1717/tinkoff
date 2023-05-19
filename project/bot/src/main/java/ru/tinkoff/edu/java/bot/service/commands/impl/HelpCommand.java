@@ -14,15 +14,15 @@ public class HelpCommand implements Command {
 
     @Override
     public String description() {
-        return "вывести окно с командами";
+        return "Вывести окно с командами";
     }
 
     @Override
     public SendMessage handle(Update update) {
-        return new SendMessage(update.message().chat().id(),"/start -- зарегистрировать пользователя\n" +
-                "/help -- вывести окно с командами\n" +
-                "/track -- начать отслеживание ссылки\n" +
-                "/untrack -- прекратить отслеживание ссылки\n" +
-                "/list -- показать список отслеживаемых ссылок");
+        return new SendMessage(update.message().chat().id(),"/start -- Зарегистрировать пользователя\uD83D\uDC8B\n" +
+                "/help -- Вывести окно с командами\uD83E\uDEF6\n" +
+                "/track -- Начать отслеживание ссылки\uD83D\uDC85\n" +
+                "/untrack -- Прекратить отслеживание ссылки✨\n" +
+                "/list -- Показать список отслеживаемых ссылок\uD83D\uDCA6");
     }
 }

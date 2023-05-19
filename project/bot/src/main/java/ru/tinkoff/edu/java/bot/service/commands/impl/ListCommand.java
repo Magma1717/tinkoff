@@ -17,7 +17,7 @@ import java.util.List;
 public class ListCommand implements Command{
     private ScrapperClient scrapperClient;
 
-    private final String LIST_IS_EMPTY = "список пуст";
+    private final String LIST_IS_EMPTY = "Список пуст";
 
     public ListCommand(ScrapperClient scrapperClient) {
         this.scrapperClient = scrapperClient;
@@ -30,7 +30,7 @@ public class ListCommand implements Command{
 
     @Override
     public String description() {
-        return "показать список отслеживаемых ссылок";
+        return "Показать список отслеживаемых ссылок\uD83E\uDEE5";
     }
 
     @Override

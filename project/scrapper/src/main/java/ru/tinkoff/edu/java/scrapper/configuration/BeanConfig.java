@@ -18,6 +18,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import static java.sql.DriverManager.getConnection;
+
 @Configuration
 @EnableScheduling
 public class BeanConfig {
@@ -50,7 +52,7 @@ public class BeanConfig {
         settings.setRenderQuotedNames(RenderQuotedNames.NEVER);
         DSLContext context;
         try {
-            Connection connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+            Connection connection = getConnection(dbUrl, dbUsername, dbPassword);
             context = DSL.using(connection, SQLDialect.POSTGRES, settings);
         } catch (SQLException e) {
             throw new RuntimeException(e);

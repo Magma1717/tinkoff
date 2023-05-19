@@ -21,13 +21,13 @@ public class StartCommand implements Command {
 
     @Override
     public String description() {
-        return "зарегистрировать пользователя";
+        return "Зарегистрировать пользователя";
     }
 
     @Override
     public SendMessage handle(Update update) {
         long tgChatId = update.message().chat().id();
         scrapperClient.registerChat(tgChatId);
-        return new SendMessage(update.message().chat().id(),"пользователь зарегестрирован");
+        return new SendMessage(update.message().chat().id(),"Пользователь успешно зарегестрирован\uD83E\uDD2D");
     }
 }

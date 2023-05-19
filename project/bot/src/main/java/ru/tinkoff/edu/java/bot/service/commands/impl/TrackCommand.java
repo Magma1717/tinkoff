@@ -24,14 +24,14 @@ public class TrackCommand implements Command {
 
     @Override
     public String description() {
-        return "начать отслеживание ссылки";
+        return "Начать отслеживание ссылки";
     }
 
     public SendMessage handle(Update update) {
         long tgChatId = update.message().chat().id();
         Message message = update.message();
         if (!isReply(message)) {
-            return new SendMessage(tgChatId, "введите ссылку для отслеживания").replyMarkup(new ForceReply());
+            return new SendMessage(tgChatId, "Введите ссылку для отслеживания\uD83E\uDD7A").replyMarkup(new ForceReply());
         } else {
             AddLinkRequest addLinkRequest = new AddLinkRequest(message.text());
             LinkResponse linkResponse = scrapperClient.addLink(tgChatId, addLinkRequest);
@@ -40,6 +40,6 @@ public class TrackCommand implements Command {
     }
     public boolean isReply(Message message) {
         Message reply = message.replyToMessage();
-        return reply != null && reply.text().equals("введите ссылку для отслеживания");
+        return reply != null && reply.text().equals("Введите ссылку для отслеживания");
     }
 }

@@ -15,11 +15,11 @@ public class UnknownCommand implements Command{
 
     @Override
     public String description() {
-        return "неизвестная команда";
+        return "Неизвестная команда - введи нормальную ";
     }
 
     @Override
     public SendMessage handle(Update update) {
-        return new SendMessage(update.message().chat().id(),"неизвестная команда");
+        return new SendMessage(update.message().chat().id(),"Неизвестная команда\uD83E\uDD21");
     }
 }
