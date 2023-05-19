@@ -1,4 +1,4 @@
-package src.main.java.ru.tinkoff.edu.java.scrapper.model.dto.updates;
+package ru.tinkoff.edu.java.scrapper.model.dto.updates;
 
 import lombok.*;
 import ru.tinkoff.edu.java.scrapper.model.dto.UpdatesDto;

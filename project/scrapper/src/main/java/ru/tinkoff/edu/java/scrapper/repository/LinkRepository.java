@@ -1,6 +1,6 @@
-package src.main.java.ru.tinkoff.edu.java.scrapper.repository;
+package ru.tinkoff.edu.java.scrapper.repository;
 
-import src.main.java.ru.tinkoff.edu.java.scrapper.model.dto.LinkResponseDto;
+import ru.tinkoff.edu.java.scrapper.model.dto.LinkResponseDto;
 import ru.tinkoff.edu.java.scrapper.model.request.AddLinkRequest;
 import ru.tinkoff.edu.java.scrapper.model.request.RemoveLinkRequest;
 import ru.tinkoff.edu.java.scrapper.model.response.LinkResponse;
@@ -24,3 +24,4 @@ public interface LinkRepository {
 
     Boolean chatIsExists(Long tgChatId);
 }
+

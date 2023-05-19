@@ -3,13 +3,12 @@ package ru.tinkoff.edu.java.scrapper.service.client;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 import ru.tinkoff.edu.java.scrapper.model.request.LinkUpdateRequest;
+import ru.tinkoff.edu.java.scrapper.service.SendMessageService;
 
-@Service
+//@Service
 @RequiredArgsConstructor
 public class BotClient implements SendMessageService{
     @Qualifier("botClientWithTimeout")

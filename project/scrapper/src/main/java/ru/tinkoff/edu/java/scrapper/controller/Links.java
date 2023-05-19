@@ -1,4 +1,4 @@
-package src.main.java.ru.tinkoff.edu.java.scrapper.controller;
+package ru.tinkoff.edu.java.scrapper.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -23,7 +23,7 @@ public interface Links {
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
-                    description = "Ссылка успешно убрана",
+                    description = "Ссылки успешно получены",
                     content = @Content(
                             mediaType = "application/json",
                             schema = @Schema(implementation = ListLinksResponse.class))),

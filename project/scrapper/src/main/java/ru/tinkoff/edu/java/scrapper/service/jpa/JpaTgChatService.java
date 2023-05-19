@@ -1,14 +1,14 @@
-package src.main.java.ru.tinkoff.edu.java.scrapper.service.jpa;
+package ru.tinkoff.edu.java.scrapper.service.jpa;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
-import src.main.java.ru.tinkoff.edu.java.scrapper.domain.entity.Chat;
+import ru.tinkoff.edu.java.scrapper.domain.entity.Chat;
 import ru.tinkoff.edu.java.scrapper.exception.DataAlreadyExistException;
 import ru.tinkoff.edu.java.scrapper.exception.DataNotFoundException;
-import src.main.java.ru.tinkoff.edu.java.scrapper.mapper.ChatMapper;
+import ru.tinkoff.edu.java.scrapper.mapper.ChatMapper;
 import ru.tinkoff.edu.java.scrapper.model.response.ListTgChatResponse;
 import ru.tinkoff.edu.java.scrapper.model.response.TgChatResponse;
-import src.main.java.ru.tinkoff.edu.java.scrapper.repository.jpa.JpaTgChatRepository;
+import ru.tinkoff.edu.java.scrapper.repository.jpa.JpaTgChatRepository;
 import ru.tinkoff.edu.java.scrapper.service.TgChatService;
 
 import java.util.List;
@@ -50,9 +50,3 @@ public class JpaTgChatService implements TgChatService {
         return response;
     }
 }
-Footer
-        © 2023 GitHub, Inc.
-        Footer navigation
-        Terms
-        Privacy
-        Security

@@ -1,4 +1,4 @@
-package src.main.java.ru.tinkoff.edu.java.scrapper.domain.entity;
+package ru.tinkoff.edu.java.scrapper.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

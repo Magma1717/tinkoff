@@ -1,11 +1,15 @@
 package ru.tinkoff.edu.java.scrapper.model.request;
 
+import lombok.*;
 
-import lombok.Data;
+import java.net.URI;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class AddLinkRequest {
-
-    private String link;
-
+    private URI link;
+    private String type;
 }

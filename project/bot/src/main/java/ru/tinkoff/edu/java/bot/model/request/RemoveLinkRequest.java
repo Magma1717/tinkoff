@@ -1,6 +1,5 @@
 package ru.tinkoff.edu.java.bot.model.request;
 
-
 import lombok.*;
 
 import java.net.URI;
@@ -13,3 +12,4 @@ import java.net.URI;
 public class RemoveLinkRequest {
     private URI link;
 }
+

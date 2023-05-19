@@ -1,9 +1,10 @@
-package src.main.java.ru.tinkoff.edu.java.scrapper.repository.jpa;
+package ru.tinkoff.edu.java.scrapper.repository.jpa;
+
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import src.main.java.ru.tinkoff.edu.java.scrapper.domain.entity.Chat;
-import src.main.java.ru.tinkoff.edu.java.scrapper.domain.entity.Link;
+import ru.tinkoff.edu.java.scrapper.domain.entity.Chat;
+import ru.tinkoff.edu.java.scrapper.domain.entity.Link;
 
 import java.util.List;
 import java.util.Optional;

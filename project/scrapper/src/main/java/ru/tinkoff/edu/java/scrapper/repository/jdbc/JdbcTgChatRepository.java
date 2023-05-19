@@ -1,4 +1,4 @@
-package src.main.java.ru.tinkoff.edu.java.scrapper.repository.jdbc;
+package ru.tinkoff.edu.java.scrapper.repository.jdbc;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;

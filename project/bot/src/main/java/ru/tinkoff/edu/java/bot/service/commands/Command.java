@@ -11,9 +11,10 @@ public interface Command {
 
     SendMessage handle(Update update);
 
-    default boolean supports(Update update) { return false; }
+//    default boolean supports(Update update) { ... }
 
     default BotCommand toApiCommand() {
         return new BotCommand(command(), description());
     }
 }
+

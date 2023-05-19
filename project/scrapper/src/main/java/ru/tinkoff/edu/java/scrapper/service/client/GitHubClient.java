@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-import ru.tinkoff.edu.java.linkParser.parser.result.GitHubResultRecord;
+import reactor.util.retry.Retry;
+import ru.tinkoff.edu.java.parser.result.GitHubResultRecord;
 import ru.tinkoff.edu.java.scrapper.model.response.GitHubRepositoryInfoResponse;
+import java.time.Duration;
 
 @Service
 @RequiredArgsConstructor

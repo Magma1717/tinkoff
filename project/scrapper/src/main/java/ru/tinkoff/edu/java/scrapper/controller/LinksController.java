@@ -1,4 +1,4 @@
-package src.main.java.ru.tinkoff.edu.java.scrapper.controller;
+package ru.tinkoff.edu.java.scrapper.controller;
 
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
@@ -16,13 +16,17 @@ import ru.tinkoff.edu.java.scrapper.model.request.AddLinkRequest;
 import ru.tinkoff.edu.java.scrapper.model.request.RemoveLinkRequest;
 import ru.tinkoff.edu.java.scrapper.model.response.LinkResponse;
 import ru.tinkoff.edu.java.scrapper.model.response.ListLinksResponse;
-import ru.tinkoff.edu.java.scrapper.service.jdbc.JdbcLinksService;
+import ru.tinkoff.edu.java.scrapper.service.LinkService;
+
+import java.net.URI;
+import java.util.ArrayList;
 
 @RestController
 @RequiredArgsConstructor
 public class LinksController implements Links {
     private final HttpServletRequest request;
-    private final JdbcLinksService jdbcLinksService;
+    private final LinkService linkService;
+
 
     @Override
     public ResponseEntity<ListLinksResponse> getLinks(
@@ -31,10 +35,10 @@ public class LinksController implements Links {
                     required = true, schema = @Schema())
             @RequestHeader(
                     value = "Tg-Chat-Id")
-            Long tgChatId) {
+                    Long tgChatId) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
-            ListLinksResponse links = jdbcLinksService.findAllLinksByTgChatId(tgChatId);
+            ListLinksResponse links = linkService.findAllLinksByTgChatId(tgChatId);
             return new ResponseEntity<>(links, HttpStatus.OK);
         }
         throw new BadRequestException("Некоректный запрос");
@@ -48,17 +52,17 @@ public class LinksController implements Links {
                     schema = @Schema())
             @RequestHeader(
                     value = "Tg-Chat-Id")
-            Long tgChatId,
+                    Long tgChatId,
             @Parameter(
                     in = ParameterIn.DEFAULT,
                     required = true,
                     schema = @Schema())
             @Valid
             @RequestBody
-            AddLinkRequest body) {
+                    AddLinkRequest body) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
-            LinkResponse response = jdbcLinksService.addLink(tgChatId, body);
+            LinkResponse response = linkService.addLink(tgChatId, body);
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
 
@@ -73,17 +77,17 @@ public class LinksController implements Links {
                     schema = @Schema())
             @RequestHeader(
                     value = "Tg-Chat-Id")
-            Long tgChatId,
+                    Long tgChatId,
             @Parameter(
                     in = ParameterIn.DEFAULT,
                     required = true,
                     schema = @Schema())
             @Valid
             @RequestBody
-            RemoveLinkRequest body) {
+                    RemoveLinkRequest body) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
-            LinkResponse response = jdbcLinksService.removeLink(tgChatId, body);
+            LinkResponse response = linkService.removeLink(tgChatId, body);
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
 

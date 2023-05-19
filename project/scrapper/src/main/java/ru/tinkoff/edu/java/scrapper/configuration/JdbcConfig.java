@@ -8,7 +8,12 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
 
-
+/*
+ JdbcTemplate injection from the "box" does not work.
+ Writes that there is no bean.
+ Properties are configured.
+ Therefore, a bean with a configuration was created.
+*/
 
 @Configuration
 public class JdbcConfig {

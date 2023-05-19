@@ -1,5 +1,6 @@
 package ru.tinkoff.edu.java.bot.service.client;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -17,15 +18,7 @@ import ru.tinkoff.edu.java.bot.model.response.ListLinksResponse;
 public class ScrapperClient {
     private final WebClient webClient;
 
-    public Mono<ResponseEntity<ListLinksResponse>> getLinks(Long tgChatId) {
-        return webClient.get()
-                .uri(uriBuilder -> uriBuilder.path("/links")
-                        .build())
-                .accept(MediaType.APPLICATION_JSON)
-                .header("Tg-Chat-Id", String.valueOf(tgChatId))
-                .retrieve()
-                .toEntity(ListLinksResponse.class);
-    }
+
 
     public Mono<ResponseEntity<LinkResponse>> postLinks(Long tgChatId, AddLinkRequest requestBody) {
         return webClient.post()
@@ -38,16 +31,6 @@ public class ScrapperClient {
                 .toEntity(LinkResponse.class);
     }
 
-    public Mono<ResponseEntity<LinkResponse>> deleteLinks(Long tgChatId, RemoveLinkRequest requestBody) {
-        return webClient.method(HttpMethod.DELETE)
-                .uri(uriBuilder -> uriBuilder.path("/links")
-                        .build())
-                .body(Mono.just(requestBody), RemoveLinkRequest.class)
-                .accept(MediaType.APPLICATION_JSON)
-                .header("Tg-Chat-Id", String.valueOf(tgChatId))
-                .retrieve()
-                .toEntity(LinkResponse.class);
-    }
 
     public Mono<ResponseEntity<Void>> registerChat(Long id) {
         return webClient.post()
@@ -65,5 +48,35 @@ public class ScrapperClient {
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .toEntity(Void.class);
+    }
+    public LinkResponse addLink(Long tgChatId, AddLinkRequest addLinkRequest) {
+        return webClient
+                .post().uri(uriBuilder -> uriBuilder
+                        .path("/links")
+                        .build())
+                .header("Tg-Chat-Id", String.valueOf(tgChatId))
+                .bodyValue(addLinkRequest)
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve().bodyToMono(LinkResponse.class).block();
+    }
+    public ListLinksResponse getLink(Long tgChatId) {
+        return webClient
+                .get().uri(uriBuilder -> uriBuilder
+                        .path("/links")
+                        .build())
+                .header("Tg-Chat-Id", String.valueOf(tgChatId))
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve().bodyToMono(ListLinksResponse.class).block();
+    }
+    public LinkResponse deleteLink(Long tgChatId, AddLinkRequest addLinkRequest) {
+        return webClient
+                .method(HttpMethod.DELETE)
+                .uri(uriBuilder -> uriBuilder
+                        .path("/links")
+                        .build())
+                .bodyValue(addLinkRequest)
+                .header("Tg-Chat-Id", String.valueOf(tgChatId))
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve().bodyToMono(LinkResponse.class).block();
     }
 }

@@ -1,4 +1,4 @@
-package src.test.java.ru.tinkoff.edu.java.scrapper.service.jdbc;
+package ru.tinkoff.edu.java.scrapper.service.jdbc;
 
 import liquibase.Contexts;
 import liquibase.LabelExpression;
@@ -20,9 +20,8 @@ import ru.tinkoff.edu.java.scrapper.container.IntegrationEnvironment;
 import ru.tinkoff.edu.java.scrapper.exception.DataAlreadyExistException;
 import ru.tinkoff.edu.java.scrapper.exception.DataNotFoundException;
 import ru.tinkoff.edu.java.scrapper.model.response.TgChatResponse;
+import ru.tinkoff.edu.java.scrapper.repository.jdbc.JdbcTgChatRepository;
 import ru.tinkoff.edu.java.scrapper.service.TgChatService;
-import src.main.java.ru.tinkoff.edu.java.scrapper.repository.jdbc.JdbcTgChatRepository;
-import src.main.java.ru.tinkoff.edu.java.scrapper.service.jdbc.JdbcTgChatService;
 
 import java.io.File;
 import java.io.FileNotFoundException;

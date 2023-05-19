@@ -1,4 +1,4 @@
-package src.main.java.ru.tinkoff.edu.java.scrapper.model.dto;
+package ru.tinkoff.edu.java.scrapper.model.dto;
 
 import lombok.*;
 
@@ -14,6 +14,7 @@ import java.time.OffsetDateTime;
 public class LinkResponseDto {
     private Long id;
     private URI url;
+    private String type;
     private OffsetDateTime lastUpdate;
     private OffsetDateTime lastCheck;
 }

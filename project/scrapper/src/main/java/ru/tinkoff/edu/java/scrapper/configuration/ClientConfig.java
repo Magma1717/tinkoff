@@ -1,5 +1,4 @@
-package src.main.java.ru.tinkoff.edu.java.scrapper.configuration;
-
+package ru.tinkoff.edu.java.scrapper.configuration;
 
 import io.netty.channel.ChannelOption;
 import io.netty.handler.timeout.ReadTimeoutHandler;

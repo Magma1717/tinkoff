@@ -1,4 +1,4 @@
-package src.test.java.ru.tinkoff.edu.java.scrapper.service.jdbc;
+package ru.tinkoff.edu.java.scrapper.service.jdbc;
 
 import liquibase.Contexts;
 import liquibase.LabelExpression;
@@ -24,8 +24,9 @@ import ru.tinkoff.edu.java.scrapper.model.request.AddLinkRequest;
 import ru.tinkoff.edu.java.scrapper.model.request.RemoveLinkRequest;
 import ru.tinkoff.edu.java.scrapper.model.response.LinkResponse;
 import ru.tinkoff.edu.java.scrapper.model.response.ListLinksResponse;
+import ru.tinkoff.edu.java.scrapper.repository.jdbc.JdbcLinkRepository;
+import ru.tinkoff.edu.java.scrapper.repository.jdbc.JdbcLinkUpdatesRepository;
 import ru.tinkoff.edu.java.scrapper.service.LinkService;
-import src.main.java.ru.tinkoff.edu.java.scrapper.service.jdbc.JdbcLinksService;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -38,8 +39,6 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertAll;
-
-;
 
 @SpringBootTest
 class JdbcLinksServiceTest extends IntegrationEnvironment {

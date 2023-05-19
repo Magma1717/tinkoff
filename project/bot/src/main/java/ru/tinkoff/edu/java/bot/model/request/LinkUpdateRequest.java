@@ -1,6 +1,7 @@
 package ru.tinkoff.edu.java.bot.model.request;
 
 import lombok.*;
+
 import java.util.Map;
 
 
@@ -19,5 +20,4 @@ public class LinkUpdateRequest {
     private String description;
 
     private Map<String, String> changes;
-
 }

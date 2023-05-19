@@ -1,48 +1,42 @@
 package ru.tinkoff.edu.java.bot.controller;
 
-import lombok.RequiredArgsConstructor;
+import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Mono;
 import ru.tinkoff.edu.java.bot.model.request.AddLinkRequest;
-import ru.tinkoff.edu.java.bot.model.request.RemoveLinkRequest;
 import ru.tinkoff.edu.java.bot.model.response.LinkResponse;
 import ru.tinkoff.edu.java.bot.model.response.ListLinksResponse;
 import ru.tinkoff.edu.java.bot.service.client.ScrapperClient;
 
 @RestController
-@RequestMapping("/scrapper")
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class ScrapperTestController {
+    private ScrapperClient scrapperClient;
 
-    private final ScrapperClient scrapperClient;
+    @PostMapping(value = "/tg-chat/{id}",
+            produces = {"application/json"})
+    public ResponseEntity<Mono> registerChat(@PathVariable("id") Long id ){
+        return new ResponseEntity<Mono>(scrapperClient.registerChat(id), HttpStatus.OK);
 
-    @GetMapping("/links")
-    public ResponseEntity<ListLinksResponse> getLinks(@RequestHeader Long thChatId) {
-        return scrapperClient.getLinks(thChatId)
-                .block();
     }
 
-    @PostMapping("/links")
-    public ResponseEntity<LinkResponse> postLinks(@RequestHeader Long thChatId, @RequestBody AddLinkRequest addLinkRequest) {
-        return scrapperClient.postLinks(thChatId, addLinkRequest)
-                .block();
+    @DeleteMapping(value = "/tg-chat/{id}",
+            produces = {"application/json"})
+    public ResponseEntity<Mono> deleteChat(@PathVariable("id") Long id){
+        return new ResponseEntity<Mono>(scrapperClient.deleteChat(id), HttpStatus.OK);
     }
 
-    @DeleteMapping("/links")
-    public ResponseEntity<LinkResponse> deleteLinks(@RequestHeader Long thChatId, @RequestBody RemoveLinkRequest removeLinkRequest) {
-        return scrapperClient.deleteLinks(thChatId, removeLinkRequest)
-                .block();
+
+
+    @PostMapping(value = "/links",
+            produces = {"application/json"})
+    public ResponseEntity<LinkResponse> addLink(Long tgChatId,@Valid @RequestBody AddLinkRequest addLinkRequest) {
+        return new ResponseEntity<>(scrapperClient.addLink(tgChatId, addLinkRequest) ,HttpStatus.OK);
+
     }
 
-    @PostMapping("/tg-chat/{id}")
-    public ResponseEntity<Void> registerChat(@PathVariable(value = "id") Long thChatId) {
-        return scrapperClient.registerChat(thChatId)
-                .block();
-    }
 
-    @DeleteMapping("/tg-chat/{id}")
-    public ResponseEntity<Void> deleteChat(@PathVariable(value = "id") Long thChatId) {
-        return scrapperClient.deleteChat(thChatId)
-                .block();
-    }
 }

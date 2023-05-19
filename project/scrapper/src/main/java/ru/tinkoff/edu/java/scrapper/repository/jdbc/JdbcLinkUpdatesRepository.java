@@ -1,14 +1,14 @@
-package src.main.java.ru.tinkoff.edu.java.scrapper.repository.jdbc;
+package ru.tinkoff.edu.java.scrapper.repository.jdbc;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import ru.tinkoff.edu.java.scrapper.model.dto.UpdatesDto;
+import ru.tinkoff.edu.java.scrapper.model.dto.updates.GitHubUpdatesDto;
+import ru.tinkoff.edu.java.scrapper.model.dto.updates.StackOverflowUpdatesDto;
 import ru.tinkoff.edu.java.scrapper.exception.DataNotFoundException;
 import ru.tinkoff.edu.java.scrapper.model.response.GitHubRepositoryInfoResponse;
 import ru.tinkoff.edu.java.scrapper.model.response.StackOverflowQuestionInfoResponse;
-import src.main.java.ru.tinkoff.edu.java.scrapper.model.dto.UpdatesDto;
-import src.main.java.ru.tinkoff.edu.java.scrapper.model.dto.updates.GitHubUpdatesDto;
-import src.main.java.ru.tinkoff.edu.java.scrapper.model.dto.updates.StackOverflowUpdatesDto;
-import src.main.java.ru.tinkoff.edu.java.scrapper.repository.LinkUpdatesRepository;
+import ru.tinkoff.edu.java.scrapper.repository.LinkUpdatesRepository;
 
 @Repository
 public class JdbcLinkUpdatesRepository implements LinkUpdatesRepository {

@@ -4,21 +4,23 @@ import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.model.request.ParseMode;
 import com.pengrad.telegrambot.request.SendMessage;
 import lombok.Getter;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import ru.tinkoff.edu.java.bot.service.bot.LinkService;
+import ru.tinkoff.edu.java.bot.model.response.ListLinksResponse;
+import ru.tinkoff.edu.java.bot.service.LinkService;
+import ru.tinkoff.edu.java.bot.service.client.ScrapperClient;
 import ru.tinkoff.edu.java.bot.service.commands.Command;
 
 import java.util.List;
 
-@Service
-public class ListCommand implements Command {
-    @Getter
-    private static final String LINK_LIST_IS_EMPTY = "Список отслеживаемых ссылок пустой";
+@Component
+public class ListCommand implements Command{
+    private ScrapperClient scrapperClient;
 
-    private final LinkService linkService;
+    private final String LIST_IS_EMPTY = "список пуст";
 
-    public ListCommand(LinkService linkService) {
-        this.linkService = linkService;
+    public ListCommand(ScrapperClient scrapperClient) {
+        this.scrapperClient = scrapperClient;
     }
 
     @Override
@@ -28,21 +30,22 @@ public class ListCommand implements Command {
 
     @Override
     public String description() {
-        return "показать отслеживаемые ссылки";
+        return "показать список отслеживаемых ссылок";
     }
 
     @Override
     public SendMessage handle(Update update) {
-        String answer =LINK_LIST_IS_EMPTY;
-        if (linkService.getLinkList() != null && !linkService.getLinkList()
-                .isEmpty()) {
-            List<String> linkList = linkService.getLinkList();
-            answer = String.join("\n", linkList);
+        Long tgChatId = update.message().chat().id();
+        try {
+            ListLinksResponse listLinksResponse =
+                    scrapperClient.getLink(tgChatId);
+            if(listLinksResponse.size() != 0) {
+                return new SendMessage(tgChatId, listLinksResponse.toString());
+            }else
+                return new SendMessage(tgChatId, LIST_IS_EMPTY);
+        }catch (Exception e){
+            return new SendMessage(tgChatId, e.getMessage());
         }
-        SendMessage sendMessage = new SendMessage(update.message()
-                .chat()
-                .id(), answer);
-        sendMessage.parseMode(ParseMode.HTML);
-        return sendMessage;
+
     }
 }
